@@ -1,0 +1,185 @@
+<?php
+
+/**
+ * Function Description
+ * @param function_parameter
+ * @returns function output description
+ *
+ * function names must begin with "contact_form_"
+ *
+ *
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function contact_form_block_info() {
+    $blocks = array();
+    $blocks['contact_form_right'] = array(
+        'info' => t('Contact Form (right)'),
+    );
+    $blocks['contact_form_left'] = array(
+        'info' => t('Contact Form (left)'),
+    );
+
+    return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function contact_form_block_configure($delta = '') {
+    $form = array();
+
+    switch ($delta) {
+        case 'contact_form_right' :
+        case 'contact_form_left' :
+            // Text field form element
+            $form['contact_title'] = array(
+                '#type' => 'textfield',
+                '#maxlength' => 100,
+                '#title' => t('Title'),
+                '#default_value' => variable_get('title_variable', ''),
+            );
+
+            $form['contact_prompt'] = array(
+                '#type' => 'textfield',
+                '#maxlength' => 100,
+                '#title' => t('Prompt'),
+                '#default_value' => variable_get('prompt_variable', ''),
+            );
+            $form['contact_instructions'] = array(
+                '#type' => 'textfield',
+                '#maxlength' => 225,
+                '#title' => t('Instructions'),
+                '#description' => t('Brief instructions for the user'),
+                '#default_value' => variable_get('instructions_variable', ''),
+            );
+            $form['contact_option1'] = array(
+                '#type' => 'textfield',
+                '#description' => t('The name of a region your client might want to contact you from.'),
+                '#maxlength' => 100,
+                '#title' => t('Region'),
+                '#required' => TRUE,
+                '#default_value' => variable_get('contact_option1_variable', ''),
+            );
+            $form['contact1'] = array(
+                '#type' => 'text_format',
+                '#description' => t('The contact information for the region above'),
+                '#title' => t('Contact'),
+                '#required' => TRUE,
+                '#default_value' => variable_get('contact1_variable', ''),
+            );
+            $form['contact_option2'] = array(
+                '#type' => 'textfield',
+                '#description' => t('The name of a region your client might want to contact you from.'),
+                '#maxlength' => 100,
+                '#title' => t('Region'),
+                '#default_value' => variable_get('contact_option2_variable', ''),
+            );
+            $form['contact2'] = array(
+                '#type' => 'text_format',
+                '#description' => t('The contact information for the region above'),
+                '#title' => t('Contact'),
+                '#default_value' => variable_get('contact2_variable', ''),
+            );
+            break;
+    }
+    return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function contact_form_block_save($delta = '', $edit = array()) {
+    switch ($delta) {
+        case 'contact_form_right' :
+        case 'contact_form_left' :
+            // Saving the description     
+            variable_set('title_variable', $edit['contact_title']);
+            variable_set('prompt_variable', $edit['contact_prompt']);
+            variable_set('instructions_variable', $edit['contact_instructions']);
+            variable_set('contact_option1_variable', $edit['contact_option1']);
+            variable_set('contact1_variable', $edit['contact1']['value']);
+            variable_set('contact_option2_variable', $edit['contact_option2']);
+            variable_set('contact2_variable', $edit['contact2']['value']);
+    }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function contact_form_block_view($delta = '') {
+    $block = array();
+
+    switch ($delta) {
+        case 'contact_form_right' :
+        case 'contact_form_left' :
+            $block['content'] = content_form_view();
+            break;
+    }
+
+    return $block;
+}
+
+/**
+ * Custom function to assemble renderable array for block content.
+ * Returns a renderable array with the block content.
+ * @return
+ *   returns a renderable array of block content.
+ */
+function content_form_view() {
+    $block = array();
+    // Capture text from the variable
+    $title = variable_get('title_variable', '');
+    $prompt = variable_get('prompt_variable', '');
+    $instructions = variable_get('instructions_variable', '');
+    $region1 = variable_get('contact_option1_variable', '');
+    $contact1 = variable_get('contact1_variable', '');
+    $region2 = variable_get('contact_option2_variable', '');
+    $contact2 = variable_get('contact2_variable', '');
+    
+    $html = <<<__HTML__
+		<script>
+			function reveal_contact(contact) {
+				document.getElementById('instructions').style.display = "none";
+				document.getElementById('contact1').style.display = "none";
+				document.getElementById('contact2').style.display = "none";
+				document.getElementById(contact).style.display = "block";
+			}
+		</script>
+
+		<section id="subscribe">
+                        <h2>$title</h2>
+			<div class="btn-group">
+				<button class="btn btn-large btn-primary btn-inverse">$prompt</button>
+				<button class="btn btn-large btn-primary btn-inverse dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="javascript:void(0)" onClick="reveal_contact('contact1')">$region1</a></li>
+					<li><a href="javascript:void(0)"  onClick="reveal_contact('contact2')">$region2</a></li>
+				</ul>
+			</div>
+			<div id="instructions">
+				<p>$instructions</p>
+			</div>
+			<div id="contact1" style="display:none;">$contact1</div>
+			<div id="contact2" style="display:none;">$contact2</div>
+		</section>
+	
+__HTML__;
+
+
+
+    // Block output in HTML with div wrapper
+    $block = array(
+        'message' => array(
+            '#type' => 'markup',
+            '#markup' => $html,
+        )
+    );
+
+    return $block;
+}
+

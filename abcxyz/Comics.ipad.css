@@ -1,0 +1,21 @@
+body > header > img {
+	padding-bottom: 5px;
+	margin: 10px 0 0 0;
+	width: 25%;
+	max-width: 60%;
+
+}
+
+body > header > .view-by-comic {
+	top: 25px;
+	right: 3%;
+	font-size: 1.3em;
+}
+
+.thumbnail {
+
+}
+
+.strip {
+	padding: 5px 1px;
+}

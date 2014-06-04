@@ -1,0 +1,194 @@
+/**
+ * @file
+ * Node Styling
+ *
+ * Style anything that isn't in the $content variable.
+ */
+
+
+.node { /* Node wrapper */
+}
+
+.preview .node { /* Preview of the content before submitting new or updated content */
+  /* background-color: #ffffea; */ /* Drupal core uses a #ffffea background */
+}
+
+.node .node-title { /* Node title */
+}
+
+.node .user-picture { /* The picture of the node author */
+}
+
+.node .submitted { /* The "posted by" information */
+}
+
+.node .content { /* Node's content wrapper */
+}
+
+.node ul.links { /* Node links. See also the ul.links declaration in the pages.css. */
+}
+
+.node-promoted { /* A node that has been promoted to the front page */
+display:none !important;
+}
+
+.node-sticky { /* A sticky node (displayed before others in a list) */
+}
+
+.node-by-viewer { /* A node created by the current user */
+}
+
+.node-teaser { /* A node displayed as teaser */
+}
+
+
+.node-3 {
+	display:none;
+}
+
+footer .span8 {
+border-left: 1px solid #fff;
+padding-left: 20px;
+}
+
+.row-fluid .span6 {
+margin:0px;
+}
+
+footer .span8 {
+border-left: 1px solid #fff;
+}
+
+
+#views-footer-sitemap a, #sitemap a {
+	color: #dd8d48;
+}
+
+#views-footer-sitemap ul, #sitemap ul {
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+}
+
+#views-footer-sitemap ul li, #sitemap ul li {
+	margin: 0;
+	list-style-type: none;
+	padding: 0;
+}
+
+#views-footer-sitemap ul li a, #sitemap ul li a {
+	color: #999;
+	font-size: 1.4em;
+	line-height: 1.5em;
+
+}
+
+#views-footer-sitemap ul li a:hover, #sitemap ul li a:hover {
+	color: #fff;
+
+}
+
+#views-footer-sitemap h6, #sitemap h6 {
+	font-size: 1.6em;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4)
+}
+
+#item_viewer {
+	margin: 0px auto;
+	width: 100%;
+}
+
+#item_viewer_img {
+	margin: 0px auto;
+	width: 630px;
+}
+
+.editorbg {
+	background:#fff;
+	padding: 20px;
+}
+
+.editorbgimg {
+	background:#fff;
+	padding: 30px 70px 20px;
+}
+
+.closeviewerimg {
+	float: right;
+	background: #000;
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin: -10px -75px 0px 0px;
+	z-index: 10;
+	position: relative;
+}
+
+.closeviewerimg a{
+	color:#fff;
+	text-decoration:none;
+}
+
+.closeviewerimg a:hover{
+	color:#fff;
+	text-decoration:none;
+}
+
+.closeviewer {
+	float: right;
+	background: #000;
+	width: 50px;
+	height: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin: -10px -55px 0px 0px;
+	z-index: 10;
+	position: relative;
+}
+
+.closeviewer a{
+	color:#fff;
+	text-decoration:none;
+}
+
+.closeviewer a:hover{
+	color:#fff;
+	text-decoration:none;
+}
+
+/*
+ * All nodes are given a node-FOO class that describes the type of content that
+ * it is. If you create a new content type called "my-custom-type", it will
+ * receive a "node-my-custom-type" class.
+ */
+
+.node-page { /* Page content node */
+}
+
+.node-article { /* Article content node */
+}
+
+.node-unpublished { /* Unpublished nodes */
+  /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
+}
+
+.node-unpublished p.unpublished,
+.comment-unpublished p.unpublished { /* The word "Unpublished" displayed underneath the content. */
+  height: 0;
+  overflow: visible;
+  color: #d8d8d8;
+  font-size: 75px;
+  line-height: 1;
+  font-family: Impact, "Arial Narrow", Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  word-wrap: break-word; /* A very nice CSS3 property */
+}
+
+.lt-ie8 .node-unpublished p.unpublished > *,
+.lt-ie8 .comment-unpublished > * {
+  position: relative; /* Otherwise these elements will appear below the "Unpublished" text. */
+}
+

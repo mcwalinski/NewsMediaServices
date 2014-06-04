@@ -1,0 +1,17 @@
+<?php
+/**
+* Function Description
+* @param function_parameter
+* @returns function output description
+*
+* function names must begin with "titles_to_terms"
+* don't close php tag
+*/
+
+//on save of product add products' title to library: products
+function titles_to_terms_field_attach_submit($entity_type, $entity, $form, &$form_state) {
+	$values = drupal_array_get_nested_value($form_state['values'], $form['#parents']);
+	if (empty($values['field_products'])) {
+		$values['field_products'] = $entity->title
+	}
+}

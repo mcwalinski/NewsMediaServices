@@ -1,0 +1,6 @@
+name = Titles to Terms
+description = Whenever a NMS product is saved it's title will be added as a term to the products library.
+core = 7.x
+package = "TitlesToTerms"
+
+version = "7.x-X.X"

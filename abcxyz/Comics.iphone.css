@@ -1,0 +1,8 @@
+body > header {
+    height: 5.2rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.thumbnail {
+	height: 4rem;
+}

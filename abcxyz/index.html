@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- init koan: html>head+body>header+(section.main>ul.comics.grid>li*9)+footer>div.ad-space -->
+<html>
+    <head>
+    	<meta content='True' name='HandheldFriendly' />
+    	<meta content='user-scalable=0' name='viewport' />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href="http://syndication.washingtonpost.com/nms_apple_icon.png" rel="apple-touch-icon">
+
+        <link rel="stylesheet" href="Comics.css" />
+        <!--[if !IE]>-->
+        <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="Comics.iphone.css" />
+        <link type="text/css" rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="Comics.ipad.css" />
+        <!--<![endif]-->
+        
+    </head>
+    <body>
+        <header>
+        	
+            <a href="index.html">
+                <img src="http://img.wpdigital.net/rw/sites/twpweb/img/logos/twp-hp-logo.png?t=20121017164700" />
+            </a>
+            <div class="heading-wrapper">
+                <h1 class="active">TODAY'S COMICS</h1>
+                <div class="pull-down-wrapper">
+                    <ul class="pull-down">
+                        <li class="thumbnail thumbnail00 active"><span>Today's Comics</span></li>
+                        <li class="thumbnail thumbnail01"><span>Pickles</span></li>
+                        <li class="thumbnail thumbnail02"><span>Barney & Clyde</span></li>
+                        <li class="thumbnail thumbnail03"><span>Candorville</span></li>
+                        <li class="thumbnail thumbnail04"><span>Watch Your Head</span></li>
+                        <li class="thumbnail thumbnail05"><span>Home and Away</span></li>
+                        <li class="thumbnail thumbnail06"><span>Mike Du Jour</span></li>
+                        <li class="thumbnail thumbnail07"><span>Little Dog Lost</span></li>
+                        <li class="thumbnail thumbnail08"><span>Fort Knox</span></li>
+                        <li class="thumbnail thumbnail09"><span>Reply All</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="view-by-comic">View by Comic Strip</div>
+        </header>
+        <div class="main-wrapper">
+            <div class="main">
+                <a href="single.html">
+                    <ul class="comic list t-0 active"></ul>
+                    <ul class="comic list t-1"></ul>
+                    <ul class="comic list t-2"></ul>
+                    <ul class="comic list t-3"></ul>
+                    <ul class="comic list t-4"></ul>
+                    <ul class="comic list t-5"></ul>
+                    <ul class="comic list t-6"></ul>
+                </a>
+            </div>
+        </div>
+        <footer>
+            <div class="ad-space">
+              <a href="http://misc.thestar.com/digitalaccess/?icid=HPH13082013"><img src="http://syndication.washingtonpost.com/abcxyz/img/star_ad.png"></a>
+            </div>
+        </footer>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script src="Comics.js"></script>
+		<script src="Comics.StripEventHandlers.js"></script>
+		<script src="Comic.js"></script>
+		<script src="Sylvester-mod.js"></script>
+        <script>
+        	google.load("feeds", "1");
+			google.setOnLoadCallback(function () {
+			    Comics.initialize();
+			});
+			//$('.main-wrapper').on('touchstart', Comics.touchHandler);
+			Comics.setupTopNav();
+		</script>
+    </body>
+</html>

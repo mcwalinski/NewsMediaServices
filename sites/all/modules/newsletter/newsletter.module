@@ -1,0 +1,223 @@
+<?php
+/**
+* Function Description
+* @param function_parameter
+* @returns function output description
+*
+* function names must begin with "newsletter_"
+*
+* In order for this module to work you must create a submit.php file and place it in your root drupal folder.
+* submit.php should contain:
+*
+*/
+
+/**
+ * Implements hook_block_info().
+ */
+function newsletter_block_info() {
+  $blocks = array();
+  $blocks['newsletter_signup'] = array(
+    'info' => t('Newsletter Signup'),
+  );
+ 
+  return $blocks;
+}
+ 
+/**
+ * Implements hook_block_configure().
+ */
+function newsletter_block_configure($delta='') {
+  $form = array();
+ 
+  switch($delta) {
+    case 'newsletter_signup' :
+      // Text field form element
+  //     $form['nl_description'] = array(
+  //       '#type' => 'textfield',
+		// '#maxlength' => 500,
+  //       '#title' => t('Newsletter tagline'),
+  //       '#default_value' => variable_get('description_variable', ''),
+  //     );
+      $form['nl_options']['nl_option1'] = array(
+        '#type' => 'textfield',
+		'#description' => t('At least one Newsletter is required. If you want to turn off the newsletter signup all together do so by unsetting the newsletter block in the administrative view.'),
+		'#maxlength' => 500,
+        '#title' => t('Newsletter 1'),
+		'#required' => TRUE,
+        '#default_value' => variable_get('option1_variable', ''),
+      );
+      $form['nl_options']['nl_option2'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Extra newsletters are optional. Only the first one is required.'),
+		'#maxlength' => 500,
+        '#title' => t('Newsletter 2'),
+		'#multiple' => True,
+        '#default_value' => variable_get('option2_variable', ''),
+      );
+      $form['nl_option3'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Extra newsletters are optional. Only the first one is required.'),
+		'#maxlength' => 500,
+        '#title' => t('Newsletter 3'),
+		'#multiple' => True,
+        '#default_value' => variable_get('option3_variable', ''),
+      );
+      $form['nl_option4'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Extra newsletters are optional. Only the first one is required.'),
+		'#maxlength' => 500,
+        '#title' => t('Newsletter 4'),
+		'#multiple' => True,
+        '#default_value' => variable_get('option4_variable', ''),
+      );
+      $form['nl_option5'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Extra newsletters are optional. Only the first one is required.'),
+		'#maxlength' => 500,
+        '#title' => t('Newsletter 5'),
+		'#multiple' => True,
+        '#default_value' => variable_get('option5_variable', ''),
+      );
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function newsletter_block_save($delta = '', $edit = array()) {
+  switch($delta) {
+    case 'newsletter_signup' :
+      // Saving the description     
+      // variable_set('description_variable', $edit['nl_description']);
+	  variable_set('option1_variable', $edit['nl_option1']);
+	  variable_set('option2_variable', $edit['nl_option2']);
+	  variable_set('option3_variable', $edit['nl_option3']);
+	  variable_set('option4_variable', $edit['nl_option4']);
+	  variable_set('option5_variable', $edit['nl_option5']);
+
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function newsletter_block_view($delta='') {
+  $block = array();
+ 
+  switch($delta) {
+    case 'newsletter_signup' :
+      $block['content'] = newsletter_view();
+      break;
+  }
+ 
+  return $block;
+}
+
+/**
+ * Custom function to assemble renderable array for block content.
+ * Returns a renderable array with the block content.
+ * @return
+ *   returns a renderable array of block content.
+ */
+function newsletter_view() {
+	$block = array();
+	//drupal_add_js(drupal_get_path('module', 'newsletter') .'/newsletter.js');
+
+	// Capture text from the variable
+	// $text = variable_get('description_variable', '');
+	$options = array (
+		variable_get('option1_variable', ''),
+		variable_get('option2_variable', ''),
+		variable_get('option3_variable', ''),
+		variable_get('option4_variable', ''),
+		variable_get('option5_variable', '')
+	);
+	$c = 0;
+	$html = <<<__HTML__
+		<h2>Subscribe to our Newsletter</h2>
+		<form id="newsletter" action="javascript:void(0)"  method="post">
+			<div id="NLstatus"></div>
+			<input name="email" id="email" type="text" placeholder="Your email address" /><br />
+			<div id="nl-options" class="options">
+			<label>Select newsletters</label>
+__HTML__;
+	foreach ($options as $option) {
+		if (!empty($option)){
+		$html = <<<__HTML__
+		$html
+		<label class="checkbox">
+		<input type="checkbox" id="opt$c" name="opt$c" value="$option">$option
+		</label>
+__HTML__;
+		$c++;
+		}
+	}
+	$html = <<<__HTML__
+		$html
+		 <button type="submit" id="searchForm" onclick="validateForm();" class="btn">Submit</button>
+		</div>
+	</form>
+__HTML__;
+
+	$js = <<<__JS__
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+		<script>
+		function validateForm() {
+			var x=document.forms["newsletter"]["email"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+			  {
+			  alert("Not a valid e-mail address");
+			  return false;
+			  }
+			SubmitForm();
+		}
+
+		function SubmitForm() {
+			var email=document.forms["newsletter"]["email"].value;
+			var nlform = document.forms["newsletter"];
+			var opts = new Array();
+			if (nlform["opt0"]) { opts[0] = nlform["opt0"]; }
+			if (nlform["opt1"]) { opts[1] = nlform["opt1"]; }
+			if (nlform["opt2"]) { opts[2] = nlform["opt2"]; }
+			if (nlform["opt3"]) { opts[3] = nlform["opt3"]; }
+			if (nlform["opt4"]) { opts[4] = nlform["opt4"]; }
+			var options = "";
+			
+			for (var i in opts) {
+				var seperator = "";
+				if (options != "") { var seperator = ", ";}
+				if (opts[i].checked) {
+					options = options + seperator + opts[i].value;
+				}
+			}
+			document.getElementById("nl-options").innerHTML = "<p>Processing... </p>";
+			$.post("submit.php", { email: email, options: options },
+			   function(data) {
+				 document.getElementById("nl-options").innerHTML = "<p>Thank you! </p>";
+			   });
+		}
+		</script>
+__JS__;
+ 
+  // Block output in HTML with div wrapper
+  $block = array(
+    'googledocfunc' => array(
+      '#type' => 'markup',
+	  '#markup' => $js
+    ),
+    'message' => array(
+      '#type' => 'markup',
+      '#markup' => $html,
+	  '#prefix' => '',
+      '#suffix' => ''
+    )
+  );
+ 
+  return $block;
+}
+

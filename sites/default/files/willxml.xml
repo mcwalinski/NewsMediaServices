@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:apcm="http://ap.org/schemas/03/2005/apcm"
+      xmlns="http://www.w3.org/2005/Atom"
+      xmlns:apnm="http://ap.org/schemas/03/2005/apnm"
+      xmlns:apxh="http://www.w3.org/1999/xhtml"
+      xmlns:ap="http://ap.org/schemas/03/2005/aptypes">
+   <author>
+      <name>Washington Post Writers Group</name>
+      <uri>http://www.postwritersgroup.com</uri>
+   </author>
+   <id>WPWRITERS-IATOM</id>
+   <title>Post Writers Group Feed for The AP</title>
+   <link href="http://www.postwritersgroup.com" rel="self"/>
+   <rights>(c) 2012 Washington Post Writers Group.</rights>
+   <updated>2012-12-27T14:24:49.917-05:00</updated>
+   <entry>
+      <id>urn:publicid:postwritersgroup.com:201212271424WRITERS___WASHPOST_bc-will-columnadv30_tn--b</id>
+      <title>Disdain all around</title>
+      <updated>2012-12-27T14:24:49.917-05:00</updated>
+      <published>2012-12-27T14:24:49.917-05:00</published>
+      <rights>(c) 2012 Washington Post Writers Group.</rights>
+      <link href="http://www.postwritersgroup.com" rel="alternate"/>
+      <content type="xhtml">
+         <apxh:div>
+         
+            <apxh:p/>
+            <apxh:p>WASHINGTON -- While accusing the Supreme Court's conservative justices of "disdain for democracy," Pamela S. Karlan proves herself talented at dispensing disdain. The Stanford law professor is, however, less talented at her chosen task of presenting a coherent understanding of judicial review. Still, her "Democracy and Disdain" in the November Harvard Law Review usefully illustrates progressivism's consistent disdain for the Founders' project of limiting government.</apxh:p>
+            <apxh:p>The primary focus of her displeasure is, remarkably, Chief Justice John Roberts' opinion mostly (BEG ITAL)upholding(END ITAL) Obamacare. But she begins by being appalled at Justice Antonin Scalia's suggestion that the lopsided majorities by which Congress in 2006 extended Section 5 of the 1965 Voting Rights Act were "a reason not for deference, but for suspicion." Well.</apxh:p>
+            <apxh:p>That section requires some Southern states and other jurisdictions to seek Justice Department permission to make even minor changes in voting procedures. This was a justifiable infringement of federalism in 1965. But in 2006, when blacks were registering and voting at higher rates than whites in some covered states, Congress extended the act until 2031 using voting information from 1972. Surely Scalia was correct that Congress, indifferent to evidence, continued to sacrifice federalism merely to make a political gesture. The Roberts court was excessively deferential in not overturning Section 5 in a 2009 case, when it merely urged Congress to reconsider the section.</apxh:p>
+            <apxh:p>Karlan's disdain for the Citizens United decision -- which held that Americans do not forfeit their First Amendment rights when they choose to speak collectively through corporate entities -- is muddled. She denounces "spending by outside groups" without explaining what they are outside of. Evidently she accepts the self-interested assumption of the political class -- the parties and candidates -- that elections are their property and independent participants are trespassers. Karlan approvingly quotes Justices Ruth Bader Ginsburg's and Stephen Breyer's unsubstantiated assertion -- itself disdainful of elected officials to whom Karlan urges vast deference -- that contributions "buy candidates' allegiance." She seems unaware that abundant social science demonstrates that contributors respond to candidates' behavior, not the reverse. And when darkly warning about campaign contributions from corporations' "management," she seems unaware that much of the corporate political spending is by (BEG ITAL)nonprofit advocacy corporations(END ITAL) -- Planned Parenthood, not Microsoft. </apxh:p>
+            <apxh:p>It is, however, the court's health care decision that she thinks especially reveals "disrespect for, and exasperation with, Congress." Even though Roberts upheld the crucial provision -- the mandate -- he did so with what Karlan considers a faulty attitude. His opinion was "grudging" in finding that, although Congress flinched from calling the mandate a tax, the law could be saved by calling it this. </apxh:p>
+            <apxh:p>Karlan is very difficult to please. Roberts rescued Congress' handiwork from Congress' clumsy legislative craftsmanship, and still she complains because in doing so Roberts inevitably made "a thinly veiled critique of Congress." Which Karlan seems to consider lese-majeste. "He conveyed disdain even as he upheld the Act," thereby revealing the conservative justices' "premise of distrust" toward Congress. They are in good company: James Madison warned of Congress "everywhere extending the sphere of its activity, and drawing all power into its impetuous vortex." But prudent wariness about Congress is not tantamount to disdain for it or democracy. </apxh:p>
+            <apxh:p>Today's American public does not share Karlan's nostalgia for the Warren court, which she says was "optimistic about the possibility of politics." Karlan subscribes to the progressive axiom that the cure for the ills of democracy is democracy, meaning elections. She sees little need for courts to protect against what the Founders' feared -- liberty-threatening excesses of majorities. With a true progressive's impatience with the crux of the Constitution, the separation of powers, Karlan wants the court to consider Congress "a full partner in seeking to address the nation's pressing problems." But often our institutions preserve liberty by being rivals rather than collaborators. </apxh:p>
+            <apxh:p>She abhors the conservative justices' "combination of institutional distrust -- the court is better at determining constitutional meaning -- and substantive distrust -- congressional power must be held in check." Clearly she thinks Congress would be "better" at judging the limits of its own power. This fits her assumption that restraints on its power are presumptively anti-democratic. </apxh:p>
+            <apxh:p>She concludes: "For if the justices disdain us, how ought we to respond?" Her pronoun radiates democratic sentimentality -- "us" conflates the citizenry and Congress. Today, just 18 percent of the citizenry approves of Congress' performance. What becomes of Karlan's argument when the conservative justices' distrust of Congress, for which she disdains them as anti-democratic, is exceeded by the public's distrust of Congress? </apxh:p>
+            <apxh:p>George Will's email address is georgewill@washpost.com.</apxh:p>
+            <apxh:p>(c) 2012, Washington Post Writers Group</apxh:p>
+         </apxh:div>
+      </content>
+      <category scheme="http://cv.ap.org/anpacategory" term="k"/>
+      <category scheme="http://cv.ap.org/anpaformat" term="bx"/>
+      <category scheme="http://cv.ap.org/anpaselector" term="tn--b"/>
+      <category scheme="http://cv.ap.org/anpatransref" term="x5441"/>
+      <apcm:ContentMetadata>
+         <apcm:DateLine>December 27, 2012</apcm:DateLine>
+         <apcm:ByLine>GEORGE F. WILL</apcm:ByLine>
+         <apcm:HeadLine>Disdain all around</apcm:HeadLine>
+         <apcm:Source City="Washington" CountryArea="DC" Id="z00037"
+                      Url="http://postwritersgroup.com">Washington Post Writers Group</apcm:Source>
+         <apcm:Characteristics MediaType="Text"/>
+         <apcm:SlugLine>bc-will-column adv30</apcm:SlugLine>
+         <apcm:Priority Numeric="4" Legacy="r"/>
+      </apcm:ContentMetadata>
+      <apnm:NewsManagement>
+         <apnm:ManagementId>urn:publicid:postwritersgroup.com:201212271424WRITERS___WASHPOST_bc-will-columnadv30_tn--b</apnm:ManagementId>
+         <apnm:ManagementType>Change</apnm:ManagementType>
+         <apnm:ManagementSequenceNumber>0</apnm:ManagementSequenceNumber>
+         <apnm:PublishingStatus>Usable</apnm:PublishingStatus>
+         <apnm:PublishingSpecialInstructions>GEORGE WILL COLUMN (Advance for Sunday, Dec. 30, 2012, and thereafter. Web release Saturday, Dec. 29, 2012, at 8 p.m. Eastern time.) (For Will clients only) </apnm:PublishingSpecialInstructions>
+      </apnm:NewsManagement>
+   </entry>
+</feed>

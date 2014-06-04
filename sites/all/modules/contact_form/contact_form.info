@@ -1,0 +1,6 @@
+name = Contact Form
+description = This module creates the Contact and Subscribe blocks. 
+core = 7.x
+package = "News Media Services Custom Modules"
+
+version = "7.x-X.X"

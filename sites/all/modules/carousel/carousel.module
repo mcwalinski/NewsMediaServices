@@ -1,0 +1,270 @@
+<?php
+/**
+* Function Description
+* @param function_parameter
+* @returns function output description
+*
+* function names must begin with "carousel_"
+*
+*
+*/
+
+/**
+ * Implements hook_block_info().
+ */
+function carousel_block_info() {
+  $blocks = array();
+  $blocks['hero_carousel'] = array(
+    'info' => t('Hero Carousel'),
+  );
+ 
+  return $blocks;
+}
+ 
+/**
+ * Implements hook_block_configure().
+ */
+function carousel_block_configure($delta='') {
+  $form = array();
+ 
+  switch($delta) {
+    case 'hero_carousel' :
+      // Text field form element
+		$form['nms_carousel']['image1'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image1', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline1'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline1', ''),
+      );
+		$form['nms_carousel']['image2'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image2', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline2'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline2', ''),
+      );		
+	  $form['nms_carousel']['image3'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image3', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline3'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline3', ''),
+      );
+	  $form['nms_carousel']['image4'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image4', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline4'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline4', ''),
+      );
+	  $form['nms_carousel']['image5'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image5', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline5'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline5', ''),
+      );
+	  $form['nms_carousel']['image6'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image6', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline6'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline6', ''),
+      );
+	  $form['nms_carousel']['image7'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image7', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline7'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline7', ''),
+      );
+	  $form['nms_carousel']['image8'] = array(
+		  '#title' => t('Image'),
+		  '#type' => 'managed_file',
+		  '#description' => t('Upload a high res image (must be smaller than 2mb)'),
+		  '#default_value' => variable_get('image8', ''),
+		  '#upload_location' => 'public://carousel_images/',
+		);
+      $form['nms_carousel']['tagline8'] = array(
+        '#type' => 'textfield',
+		'#description' => t('Add a tagline to the image above'),
+		'#maxlength' => 500,
+        '#title' => t('Tagline'),
+        '#default_value' => variable_get('tagline8', ''),
+      );
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function carousel_block_save($delta = '', $edit = array()) {
+  switch($delta) {
+    case 'hero_carousel' :
+      // Saving the input     
+      variable_set('image1', $edit['image1']);
+	  variable_set('tagline1', $edit['tagline1']);
+	  variable_set('image2', $edit['image2']);
+	  variable_set('tagline2', $edit['tagline2']);
+	  variable_set('image3', $edit['image3']);
+	  variable_set('tagline3', $edit['tagline3']);
+	  variable_set('image4', $edit['image4']);
+	  variable_set('tagline4', $edit['tagline4']);
+	  variable_set('image5', $edit['image5']);
+	  variable_set('tagline5', $edit['tagline5']);
+	  variable_set('image6', $edit['image6']);
+	  variable_set('tagline6', $edit['tagline6']);
+	  variable_set('image7', $edit['image7']);
+	  variable_set('tagline7', $edit['tagline7']);
+	  variable_set('image8', $edit['image8']);
+	  variable_set('tagline8', $edit['tagline8']);
+	  
+	break;
+  }
+  $images = array(variable_get('image1', ''),variable_get('image2', ''),variable_get('image3', ''),variable_get('image4', ''),variable_get('image5', ''),variable_get('image6', ''),variable_get('image7', ''),variable_get('image8', ''));
+  	foreach ($images as $fid) {
+		if (!empty($fid)) {
+			$file = file_load($fid);
+			 // Change each file's status to permanent.
+			$file->status = FILE_STATUS_PERMANENT;
+			  // Save.
+			file_save($file);
+			//record file usage
+			file_usage_add($file, 'carousel', 'block', 49);
+		}
+	}
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function carousel_block_view($delta='') {
+  $block = array();
+ 
+  switch($delta) {
+    case 'hero_carousel' :
+      $block['content'] = carousel_view();
+      break;
+  }
+ 
+  return $block;
+}
+
+/**
+ * Custom function to assemble renderable array for block content.
+ * Returns a renderable array with the block content.
+ * @return
+ *   returns a renderable array of block content.
+ */
+function carousel_view() {
+	$block = array();
+
+	// Capture values from the form
+    $images = array(variable_get('image1', ''),variable_get('image2', ''),variable_get('image3', ''),variable_get('image4', ''),variable_get('image5', ''),variable_get('image6', ''),variable_get('image7', ''),variable_get('image8', ''));
+	$taglines = array(variable_get('tagline1', ''),variable_get('tagline2', ''),variable_get('tagline3', ''),variable_get('tagline4', ''),variable_get('tagline5', ''),variable_get('tagline6', ''),variable_get('tagline7', ''),variable_get('tagline8', ''));
+	$c = 0;
+	$innerhtml = "";
+	foreach ($images as $fid) {
+		if (!empty($fid)) {
+			$imgpath = file_load($fid)->uri;
+			$imageurl = file_create_url($imgpath);
+			$image = "<img src='".$imageurl."' />";
+			$tagline = $taglines[$c];
+			$class = "item";
+			if ($c == 0) {$class="active item";  $image = '<img class="lazy" data-original="'.$imageurl.'" src="images/white.gif" />';}
+			$c++;
+			$innerhtml .= <<<__HTML__
+				<div class="$class">
+                    $image
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <p><strong>$tagline</strong></p>
+                        </div>
+                    </div>
+                </div>
+__HTML__;
+		}
+	}
+	
+	$fid = variable_get('image1', '');
+	$imgpath = file_load($fid)->uri;
+	$image = file_create_url($imgpath);
+	$tagline = variable_get('tagline1', '');
+	$html = <<<__HTML__
+   		<div id="hero-carousel" class="carousel slide">
+			<!-- Carousel items -->
+			<div class="carousel-inner">$innerhtml</div>
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#hero-carousel" data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#hero-carousel" data-slide="next">&rsaquo;</a>
+		</div>
+
+__HTML__;
+
+	
+
+
+ 
+  // Block output in HTML with div wrapper
+  $block = array(
+    'message' => array(
+      '#type' => 'markup',
+      '#markup' => $html,
+    )
+  );
+ 
+  return $block;
+}
+
